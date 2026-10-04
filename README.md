@@ -3,8 +3,8 @@
 ## Imagens
 ### Área de trabalho
 <div align="center">
-  <img src="/Imagens/Imagem1-tela.png" width="45%" alt="Área de trabalho" />
-  <img src="/Imagens/Imagem2-telauso.png" width="45%" alt="Área de trabalho - Composição" />
+  <img src="/Imagens/imagem1-tela.png" width="45%" alt="Área de trabalho" />
+  <img src="/Imagens/imagem2-telauso.png" width="45%" alt="Área de trabalho - Composição" />
 </div>
 ### Papéis de parede
 <div align="center">
