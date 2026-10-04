@@ -1,0 +1,42 @@
+# Arquivo de configuração do Mako.
+# =====================
+# 1. Geral
+# =====================
+### I. Tamanho máximo do histórico
+max-history=3
+### II. Tipo de prioridade das notificações
+sort=+time
+### III. Estilo
+### III.I. Fonte
+font=monospace 14
+### III.II. Cor de fundo
+background-color=#282828ff
+### III.III. Cor de texto
+text-color=#ebdbb2ff
+### III.IV. Largura da janela de notificação
+width=500
+### III.V. Altura da janela de notificação
+height=100
+### III.VI. Tamanho da borda
+border-size=1
+### III.VII. Cor de borda
+border-color=#ebdbb2ff
+### III.VIII. Cor de progresso
+progress-color=over #cc241dff
+### III.IX. Ícone
+icons=0
+### III.X. Alinhamento do texto
+text-alignment=center
+### III.XI. Máximo de notificações visíveis
+max-visible=5
+### III.XII. Posição da notificação no monitor
+anchor=top-center
+# =====================
+# 2. Categorias
+# =====================
+### I. Baixa prioridade
+[urgency=high]
+### I.I. Cor de texto
+text-color=#cc241dff
+### I.II. Cor de borda
+border-color=#cc241dff

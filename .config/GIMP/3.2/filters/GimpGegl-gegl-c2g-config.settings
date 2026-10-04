@@ -1,0 +1,40 @@
+# settings
+
+(GimpGegl-gegl-c2g-config "2026-09-28 19:25:19"
+    (time 1790634319)
+    (radius 300)
+    (samples 4)
+    (iterations 10)
+    (enhance-shadows no))
+(GimpGegl-gegl-c2g-config "2026-09-28 18:26:26"
+    (time 1790630786)
+    (radius 1039)
+    (samples 13)
+    (iterations 27)
+    (enhance-shadows no))
+(GimpGegl-gegl-c2g-config "2026-09-28 18:14:08"
+    (time 1790630048)
+    (radius 1296)
+    (samples 4)
+    (iterations 32)
+    (enhance-shadows no))
+(GimpGegl-gegl-c2g-config "2026-09-28 17:57:06"
+    (time 1790629026)
+    (radius 300)
+    (samples 4)
+    (iterations 10)
+    (enhance-shadows no))
+(GimpGegl-gegl-c2g-config "2026-09-23 13:00:28"
+    (time 1790179228)
+    (radius 42)
+    (samples 7)
+    (iterations 1)
+    (enhance-shadows no))
+(GimpGegl-gegl-c2g-config "2026-09-23 11:28:31"
+    (time 1790173711)
+    (radius 1404)
+    (samples 23)
+    (iterations 4)
+    (enhance-shadows no))
+
+# end of settings

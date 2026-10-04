@@ -1,0 +1,74 @@
+# settings
+
+(GimpGegl-gimp-colorize-config "2026-09-28 19:28:22"
+    (time 1790634502)
+    (hue 0.11988309770822525)
+    (saturation 0.58762896060943604)
+    (lightness 0.61960792541503906)
+    (color
+        (color "R'G'B' double" 24 "\175\175\175\175\175\175\355\77\173\173\173\173\173\173\353\77VVVVVV\346\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-28 19:20:34"
+    (time 1790634034)
+    (hue 0)
+    (saturation 0)
+    (lightness -0.68627446889877319)
+    (color
+        (color "R'G'B' double" 24 "\24\24\24\24\24\24\304\77\24\24\24\24\24\24\304\77\24\24\24\24\24\24\304\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-28 18:33:28"
+    (time 1790631208)
+    (hue 0.11988309770822525)
+    (saturation 0.58762896060943604)
+    (lightness 0.61960792541503906)
+    (color
+        (color "R'G'B' double" 24 "\175\175\175\175\175\175\355\77\173\173\173\173\173\173\353\77VVVVVV\346\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-28 18:29:10"
+    (time 1790630950)
+    (hue 0.11988309770822525)
+    (saturation 0.58762896060943604)
+    (lightness 0.61960792541503906)
+    (color
+        (color "R'G'B' double" 24 "\175\175\175\175\175\175\355\77\173\173\173\173\173\173\353\77VVVVVV\346\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-23 15:20:14"
+    (time 1790187614)
+    (hue 0)
+    (saturation 0)
+    (lightness 0.62180817127227783)
+    (color
+        (color "HSV float" 12 "\342\70\216\76\0\0\0\0i\227O\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-23 13:53:50"
+    (time 1790182430)
+    (hue 0)
+    (saturation 0)
+    (lightness -0.68627446889877319)
+    (color
+        (color "R'G'B' double" 24 "\24\24\24\24\24\24\304\77\24\24\24\24\24\24\304\77\24\24\24\24\24\24\304\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-22 19:39:45"
+    (time 1790116785)
+    (hue 0.2802)
+    (saturation 0.77569999999999995)
+    (lightness 0)
+    (color
+        (color "HSL float" 12 "\140v\217\76F\224F\77\0\0\0\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-22 19:30:53"
+    (time 1790116253)
+    (hue 0.11988183110952377)
+    (saturation 0.58763992786407471)
+    (lightness -0.71699999999999997)
+    (color
+        (color "HSL float" 12 "\233\204\365\75\222o\26\77\140\345\20\76" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-22 19:30:02"
+    (time 1790116202)
+    (hue 0)
+    (saturation 0)
+    (lightness -0.68627166748046875)
+    (color
+        (color "R'G'B'A double" 32 "\0\0\0\300\37\24\304\77\0\0\0\300\37\24\304\77\0\0\0\300\37\24\304\77\0\0\0\0\0\0\360\77" 0)))
+(GimpGegl-gimp-colorize-config "2026-09-22 16:15:22"
+    (time 1790104522)
+    (hue 0.11988183110952377)
+    (saturation 0.40989999999999999)
+    (lightness -0.52100002765655518)
+    (color
+        (color "HSL float" 12 "\233\204\365\75j\336\321\76\174\77u\76" 0)))
+
+# end of settings

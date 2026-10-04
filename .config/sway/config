@@ -1,0 +1,292 @@
+# Arquivo de configuração do SwayWM. 
+# =====================
+# I. Variáveis
+# =====================
+### I. Tecla modificadora
+set $mod Mod4
+## II. Teclas direcionais (estilo vim)
+### II.I. Tecla direcinal para esquerda
+set $left h
+### II.II. Tecla direcional para baixo
+set $down j
+### II.III. Tecla direcional para cima
+set $up k
+### II.IV. Tecla direcional para direita
+set $right l
+### III. Emulador de terminal utilizado 
+set $term foot
+### IV. Lançador de aplicativos utilizado
+set $menu fuzzel
+### V. Nomes dos espaços de trabalho
+set $et1 "1:I"
+set $et2 "2:II"
+set $et3 "3:III"
+set $et4 "4:IV"
+set $et5 "5:V"
+set $et6 "6:VI"
+set $et7 "7:VII"
+set $et8 "8:VIII"
+set $et9 "9:IX"
+set $et10 "10:X"
+### VI. Desativa o foco automatico via ponteiro. Ajuda em possíveis travamentos
+focus_follows_mouse no
+### VII. Arquivos de configuração adicionais
+include /etc/sway/config.d/*
+### VIII. Importa variáveis de ambiente essenciais para o systemd
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+### IX. Sincroniza o Sway com D-Bus
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP GTK_THEME
+### X. Habilita o uso do xwayland quando necessário
+xwayland enable
+### XI. Waybar
+bar {
+swaybar_command waybar
+}
+## XII. Mako (notificações)
+### XII.I. Inicia Mako automaticamente
+exec mako
+### XII.II. Atalho para excluir notificação mais recente
+bindsym $mod+Shift+Escape exec makoctl dismiss
+### XIII. Polkit
+exec lxpolkit
+# =====================
+# II. Entrada e saída
+# =====================
+## I. Monitores e fundo (saída — "outputs")
+### I.I. Monitor principal
+output DP-1 resolution 1920x1080 position 0,0
+### I.II. Monitor secundário
+output HDMI-A-1 resolution 1024x768 transform 270 
+### I.III. Fundo
+output DP-1 background ~/.config/sway/Uma-forma-de-voar-goya.jpg fit #ebdbb2
+output HDMI-A-1 background ~/.config/sway/retrato-de-joseph-roulind-van-gogh.jpg fill #ebdbb2
+### I.IV. Define os espaços de trabalho do monitor DP-1 (ímpares)
+workspace $et1 output DP-1
+workspace $et3 output DP-1
+workspace $et5 output DP-1
+workspace $et7 output DP-1
+workspace $et9 output DP-1
+### I.V. Define os espaços de trabalho do monitor HDMI-A-1 (pares)
+workspace $et2 output HDMI-A-1
+workspace $et4 output HDMI-A-1
+workspace $et6 output HDMI-A-1
+workspace $et8 output HDMI-A-1
+workspace $et10 output HDMI-A-1
+## II. Teclado (entrada — "inputs")
+### II.I. Tipo ("layout") do teclado 
+input type:keyboard xkb_layout br
+### II.II. Demora para repetição de teclas
+input type:keyboard repeat_delay 500
+### II.III. Ativação inicializada do numlock
+input type:keyboard xkb_numlock enable
+### II.IV. Tecla de composição (padrão: shift+altgr)
+input type:keyboard xkb_options lv3:ralt_switch_multikey
+## III. Mouse (entrada — "inputs")
+### III.I. Define o perfil de aceleração do mouse. Pode causar "peso" ao mouse
+input type:pointer accel_profile flat
+### III.II. Altera o perfil de aceleração do mouse. Melhora o "peso" do mouse
+input type:pointer pointer_accel 0.3
+### IV. Mesa digitalizadora (modo relativo/mouse com pressão/rotação. Entrada — "inputs")
+input "type:tablet_tool" {
+    # Altera o comportamento da caneta de absoluto para relativo (como um mouse/touchpad)
+    tool_mode * relative
+    # Permite a rotação de 180 graus. Também funciona para canhotos 
+    left_handed enable
+    # Define a velocidade linear e desativa acelerações matemáticas extras
+    accel_profile "flat"
+    pointer_accel 0.0
+}
+# =====================
+# III. Atalhos
+# =====================
+## I. Recursos básicos 
+### I.I. Abrir terminal
+bindsym $mod+return exec $term
+### I.II. Matar janela em uso ativo
+bindsym $mod+shift+q kill
+### I.III. Abrir lançador de aplicativos
+bindsym $mod+d exec $menu
+### I.IV. Quando $mod é pressionada e mantida, via teclas de movimentação, move-se janelas para a direção
+floating_modifier $mod normal
+## II. Movimentação direcional de foco
+### II.I. Movimentação para esquerda (estilo Vim)
+bindsym $mod+$left focus left
+### II.II. Movimentação para baixo (estilo Vim)
+bindsym $mod+$down focus down
+### II.III. Movimentação para cima (estilo Vim)
+bindsym $mod+$up focus up
+### II.IV. Movimentação para direita (estilo Vim)
+bindsym $mod+$right focus right
+# ### II.V. Movimentação para esquerda
+# bindsym $mod+LEFT focus left
+# ### II.VI. Movimentação para baixo
+# bindsym $mod+DOWN focus down
+# ### II.VII. Movimentação para cima
+# bindsym $mod+UP focus up
+# ### II.VIII. Movimentação para direita
+# bindsym $mod+RIGHT focus right
+## III. Mudança direcional de posição da janela em foco
+### III.I. mudança para esquerda (estilo Vim)
+bindsym $mod+Shift+$left move left
+### III.II. mudança para baixo (estilo Vim)
+bindsym $mod+Shift+$down move down
+### III.III. mudança para cima (estilo Vim)
+bindsym $mod+Shift+$up move up
+### III.IV. mudança para direita (estilo Vim)
+bindsym $mod+Shift+$right move right
+# ### III.V. mudança para esquerda
+# bindsym $mod+Shift+LEFT move left
+# ### III.VI. mudança para baixo
+# bindsym $mod+Shift+DOWN move down
+# ### III.VII. mudança para cima
+# bindsym $mod+Shift+UP move up
+# ### III.VIII. mudança para direita
+# bindsym $mod+Shift+RIGHT move right
+### IV. Mudança de espaço de trabalho e posicionamento ádrão
+bindsym $mod+1 workspace $et1
+bindsym $mod+2 workspace $et2
+bindsym $mod+3 workspace $et3
+bindsym $mod+4 workspace $et4
+bindsym $mod+5 workspace $et5
+bindsym $mod+6 workspace $et6
+bindsym $mod+7 workspace $et7
+bindsym $mod+8 workspace $et8
+bindsym $mod+9 workspace $et9
+bindsym $mod+0 workspace $et10
+### V. Movimentação de contêiner para outro espaço de trabalho
+bindsym $mod+Shift+1 move container to workspace $et1
+bindsym $mod+Shift+2 move container to workspace $et2
+bindsym $mod+Shift+3 move container to workspace $et3
+bindsym $mod+Shift+4 move container to workspace $et4
+bindsym $mod+Shift+5 move container to workspace $et5
+bindsym $mod+Shift+6 move container to workspace $et6
+bindsym $mod+Shift+7 move container to workspace $et7
+bindsym $mod+Shift+8 move container to workspace $et8
+bindsym $mod+Shift+9 move container to workspace $et9
+bindsym $mod+Shift+0 move container to workspace $et10
+## VI. Ordenação da disposição ("layout")
+### VI.I. Divisão horizontal de janelas
+bindsym $mod+b splith
+### VI.II. Divisão vertical de janelas
+bindsym $mod+v splitv
+### VI.III. Ordenação via empilhamentos
+bindsym $mod+s layout stacking
+### VI.IV. Ordenação via abas
+bindsym $mod+w layout tabbed
+### VI.V. Troca de direção da divisão de janelas
+bindsym $mod+e layout toggle split
+### VI.VI. Foco em tela cheia
+bindsym $mod+f fullscreen
+### VI.VII. Alternância de elemento entre modo lado a lado e flutuante    
+bindsym $mod+Shift+space floating toggle
+### VI.VIII. Troca entre lado a lado e flutuante
+bindsym $mod+space focus mode_toggle
+### VI.IX. Mudança de foco para o contêiner pai
+bindsym $mod+a focus parent
+## VII. Área de rascunhos 
+### VII.I. Mudança de modo da janela em foco para janela oculta
+bindsym $mod+Shift+minus move scratchpad
+### VII.II. Troca de janela oculta em foco e ocultação
+bindsym $mod+minus scratchpad show
+## VIII. Redimensionamento de contêiners
+### VIII.I. Comportamento do redimensionamento
+mode "resize" {
+# $left reduzirá a largura do contêiner
+# $right aumentará a largura do contêiner
+# $up reduzirá a altura do contêiner
+# $down aumentará a altura do contêiner
+bindsym $left resize shrink width 10px
+bindsym $down resize grow height 10px
+bindsym $up resize shrink height 10px
+bindsym $right resize grow width 10px
+# O mesmo, com as teclas de seta
+bindsym Left resize shrink width 10px
+bindsym Down resize grow height 10px
+bindsym Up resize shrink height 10px
+bindsym Right resize grow width 10px
+# Retornar ao modo padrão
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+### VIII.II. Modo de redimensionamento
+bindsym $mod+r mode "resize"
+### IX. Movimentação estilo mouse via wl-kbptr
+### IX.I. Wl-kbptr no modo flutuante
+bindsym $mod+Shift+w exec wl-kbptr -o modes=floating','click -o mode_floating.source=detect
+### IX.II. Wl-kbptr no modo grade
+bindsym $mod+Shift+g exec wl-kbptr -o modes=tile','click
+### IX.III. Wl-kbptr em modo normal de movimentação contínua
+bindsym $mod+Shift+c mode "Mouse"
+### IX.IV. Modo "Mouse"
+mode "Mouse" {
+bindsym KP_Enter mode default
+bindsym KP_Up seat seat0 cursor move 0 -20
+bindsym KP_Down seat seat0 cursor move 0 20
+bindsym KP_Left seat seat0 cursor move -20 0
+bindsym KP_Right seat seat0 cursor move 20 0
+bindsym KP_Home seat seat0 cursor press button1
+bindsym --release KP_Home seat seat0 cursor release button1
+bindsym KP_Delete seat seat0 cursor press button2
+bindsym --release KP_Delete seat seat0 cursor release button2
+bindsym KP_Page_Up seat seat0 cursor press button3
+bindsym --release KP_Page_Up seat seat0 cursor release button3
+bindsym KP_Begin mode default, exec wl-kbptr -o modes=tile','click
+bindsym space mode default, exec wl-kbptr -o modes=floating','click -o mode_floating.source=detect
+}
+## X. Área de copia e cola ("clipboard")
+## Instale wl-clipboard e clipshist
+### X.I. Monitoramento
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+### X.II. Atalho
+bindsym $mod+Shift+d exec "cliphist list | fuzzel --config ~/.config/fuzzel/fuzzel_clipboard.ini --dmenu | cliphist decode | wl-copy"
+### XI. Seletor de cores
+## Instale grim, slurp, imagemagick e wl-clipboard
+bindsym Scroll_Lock exec bash -c 'COLOR=$(grim -g "$(slurp -p)" -t ppm - | convert - -format "#%[hex:p{0,0}]" info:- | cut -c1-7) && wl-copy "$COLOR" && notify-send -t 5000 "Color Picker" "Cor copiada: $COLOR"'
+### XII. Print (seleciona área)
+bindsym HOME exec bash -c 'DIR="$HOME/Imagens/Screenshots" && mkdir -p "$DIR" && FILE="$DIR/screenshot_$(date +%Y%m%d_%H%M%S).png" && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && notify-send -t 5000 -i "$FILE" "Screenshot" "Captura de área salva e copiada!"'
+## XIII. Áudio 
+### XIII.I. Diminuir volume
+bindsym F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+### XIII.II. Aumentar volume
+bindsym F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+### XIII.III. Mutar
+bindsym F4 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+## XIV. Mídia 
+### XIV.I. Proceder
+bindsym F5 exec playerctl previous
+### XIV.II. Anteceder
+bindsym F6 exec playerctl next
+### XIV.III. Iniciar/pausar
+bindsym F7 exec playerctl play-pause
+### XIV.IV. Parar
+bindsym F8 exec playerctl stop
+# =====================
+# IV. Aparência
+# =====================
+## I. Espaçamento
+### I.I. Espaçamento interno entre janelas
+gaps inner 1
+### I.II. Espaçamento externo entre janelas
+gaps outer 2
+### I.III. Espaçamento superior 
+gaps top 2
+## II. Regra de janelas
+### II.I. Janelas com a classe 'cubesuite' (ignorando maiúsculas) abrirão em modo flutuante
+for_window [class="(?i)cubesuite.*"] floating enable
+### II.II. Janelas com o título 'cubesuite' abrirão em modo flutuante
+for_window [title="(?i)cubesuite.*"] floating enable
+### III. Cores das janelas
+client.focused #ebdbb2 #ebdbb2 #282828 #cc241d
+client.focused_inactive #282828 #282828 #282828
+client.unfocused #ebdbb2 #282828 #ebdbb2 #282828
+client.urgent #cc241d #cc241d #cc241d #cc241d
+## IV. Tema geral (GTK)
+### IV.I. Definição geral para aplicativos
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-Dark-Gruvbox'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+}
+### IV.II. Tema aplicado à aplicações Flatpak
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway GTK_THEME=Colloid-Dark-Gruvbox
+# --- FIM ---

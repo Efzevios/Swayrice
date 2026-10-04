@@ -1,0 +1,26 @@
+# settings
+
+(GimpGegl-gegl-newsprint-config "2026-09-22 16:13:37"
+    (time 1790104417)
+    (gimp-mode dissolve)
+    (gimp-opacity 0.184)
+    (color-model black-on-white)
+    (pattern2 line)
+    (period2 12)
+    (angle2 15)
+    (pattern3 line)
+    (period3 12)
+    (angle3 45)
+    (pattern4 line)
+    (period4 12)
+    (angle4 0)
+    (pattern line)
+    (period 13.109999999999999)
+    (angle -180)
+    (black-pullout 1)
+    (aa-samples 16)
+    (turbulence 0)
+    (blocksize -1)
+    (angleboost 0))
+
+# end of settings

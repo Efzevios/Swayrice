@@ -1,0 +1,7 @@
+[MODE]
+pc_update_support=0
+[flash]
+testflash=0
+[USB]
+vid=301A
+pid=0000

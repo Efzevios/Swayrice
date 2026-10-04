@@ -1,0 +1,64 @@
+# settings
+
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 19:27:31"
+    (time 1790634451)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0.001)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 19:26:52"
+    (time 1790634412)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0.001)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 18:32:41"
+    (time 1790631161)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0.021999999999999999)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 18:28:13"
+    (time 1790630893)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0.035000000000000003)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 18:16:05"
+    (time 1790630165)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-28 17:58:51"
+    (time 1790629131)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-23 14:06:50"
+    (time 1790183210)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-23 14:06:32"
+    (time 1790183192)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-23 13:47:09"
+    (time 1790182029)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+(GimpGegl-gegl-color-to-alpha-config "2026-09-23 13:36:38"
+    (time 1790181398)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
+    (transparency-threshold 0)
+    (opacity-threshold 1))
+
+# end of settings

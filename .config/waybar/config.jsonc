@@ -1,0 +1,114 @@
+// Arquivo de configuração .jsonc do Waybar.
+{
+	// =====================
+	// I. Geral
+	// =====================
+	// I.I.	Posicionamento frontal da barra em relação às camadas
+	 "layer": "top",
+	// I.II. Monitor de saída da barra 
+	 "output": "DP-1",
+	// I.III. Posicionamento da barra
+	 "position": "left",
+	// I.IV. Espaçamento
+	 "spacing": 4,
+	// =====================
+	// II. Posição dos módulos
+	// =====================
+	// II.I. Módulos inferiores 
+	 "modules-right": [
+	  "sway/scratchpad",
+	  "sway/workspaces",
+	  "sway/mode"
+	 ],
+	// II.II. Módulos ao centro    
+	 "modules-center": [
+	  "sway/window"
+	 ],
+	// II.III. Módulos superiores
+	 "modules-left": [
+	  "network",
+	  "bluetooth",
+	  "cpu",
+	  "memory",
+	  "clock"
+	 ],
+	// =====================
+	// III. Módulos inferiores
+	// =====================
+	// I. Sway workspace
+	 "sway/workspaces": {
+	// I.I. Mostra os espaços de trabalho de todos os monitores
+	  "all-outputs": true,
+	// I.II. Desabilita a troca de espaço de trabalho via rolamento
+	  "disable-scroll": true,
+	// I.III. Desabilita a troca de espaço de trabalho via toque
+	  "disable-click": true,
+	// I.IV. Formato como as informações são mostradas
+	  "format": "{name}",
+	// I.V. Remove a enumeração via numerais indo-arábicos
+	  "strip-workspace-number": true
+	 },
+	// II. Sway mode
+	 "sway/mode": {
+	  "format": ""
+	 },
+	// III.  
+	 "sway/scratchpad": {
+	  "format": "{icon}",
+	  "show-empty": false,
+	  "format-icons": ["", "1", "2", "3+"]
+	 },
+	// =====================
+	// IV. Módulos centrais
+	// =====================
+	// I. Sway window
+	 "sway/window": {
+	  "format": "{title}",
+	  "all-outputs": true,
+	  "rotate": 90
+	 },
+	// =====================
+	// V. Módulos inferiores
+	// =====================
+	// I. Network
+	 "network": {
+	  "interval": 1,
+	  "format-wifi": "{icon}",
+	  "format-icons": [
+	   "󰤟",
+	   "󰤢",
+	   "󰤨"
+	  ],
+	  "format-disconnected": "󰤭",
+	  "tooltip-format-wifi": "{essid} ({signalStrength}%)\nIP: {ipaddr}"
+	 },
+	// II. Bluetooth
+	 "bluetooth": {
+	  "format-disable": "󰂳",
+	  "format-off": "󰂲",
+	  "format-on": "",
+	  "format-connected": "󰂱",
+	  "interval": 5,
+	  "tooltip-format": "{controller_alias}\t{controller_address}",
+	  "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	  "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	  },
+	// III. Cpu
+	 "cpu": {
+	  "inverval": 5,
+	  "format": "\n{usage}%",
+	  "justify": "center"
+	 },
+	// IV. Memory
+	 "memory": {
+	  "interval": 1,
+	  "format": "󰘚\n{percentage}%",
+	  "justify": "center",
+	  "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)"
+	 },
+	// V. Clock
+	 "clock": {
+	  "format": "{:%H\n%M}",
+	 },
+}
+

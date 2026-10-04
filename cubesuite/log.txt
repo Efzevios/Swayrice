@@ -1,0 +1,112 @@
+[2022-27-04 12:26:41.681]{CUSBConnect::flash_read failed}
+[2022-27-04 12:26:41.682]{CUSBConnect::flash_read failed}
+[2022-27-04 12:26:42.046]{CUSBConnect::flash_read failed}
+[2022-27-04 12:26:42.047]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:10.274]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:10.275]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:10.659]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:10.659]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:11.064]{CUSBConnect::flash_read failed}
+[2022-27-04 14:41:11.065]{CUSBConnect::flash_read failed}
+[2022-29-04 09:20:43.013]{CUSBConnect::flash_read failed}
+[2022-29-04 10:51:46.096]{CUSBConnect::flash_read failed}
+[2022-29-04 10:51:46.096]{CUSBConnect::flash_read failed}
+[2022-29-04 10:51:46.450]{CUSBConnect::flash_read failed}
+[2022-29-04 10:51:46.451]{CUSBConnect::flash_read failed}
+[2022-29-04 11:59:03.383]{CUSBConnect::flash_read failed}
+[2022-29-04 11:59:03.383]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:25.414]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:25.417]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:25.779]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:25.780]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:26.182]{CUSBConnect::flash_read failed}
+[2022-05-05 13:52:26.183]{CUSBConnect::flash_read failed}
+[2022-06-05 13:27:54.117]{CUSBConnect::flash_read failed}
+[2022-06-05 13:27:54.118]{CUSBConnect::flash_read failed}
+[2022-06-05 15:28:35.165]{CUSBConnect::flash_read failed}
+[2022-06-05 15:28:35.166]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:15.437]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:15.437]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:15.836]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:15.837]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:16.249]{CUSBConnect::flash_read failed}
+[2022-06-05 16:50:16.249]{CUSBConnect::flash_read failed}
+[2022-07-05 16:07:29.308]{CUSBConnect::flash_read failed}
+[2022-07-05 16:07:29.313]{CUSBConnect::flash_read failed}
+[2022-09-05 10:56:44.096]{CUSBConnect::flash_read failed}
+[2022-09-05 10:56:49.188]{CUSBConnect::flash_read failed}
+[2022-09-05 10:56:54.733]{CUSBConnect::flash_read failed}
+[2022-09-05 10:59:14.550]{CUSBConnect::flash_read failed}
+[2022-09-05 10:59:14.550]{CUSBConnect::flash_read failed}
+[2022-09-05 10:59:14.947]{CUSBConnect::flash_read failed}
+[2022-09-05 10:59:14.947]{CUSBConnect::flash_read failed}
+[2022-09-05 13:51:57.840]{CUSBConnect::flash_read failed}
+[2022-09-05 13:51:57.840]{CUSBConnect::flash_read failed}
+[2022-09-05 13:51:58.244]{CUSBConnect::flash_read failed}
+[2022-09-05 13:51:58.244]{CUSBConnect::flash_read failed}
+[2022-09-05 14:12:46.356]{CUSBConnect::flash_read failed}
+[2022-09-05 17:13:24.917]{CUSBConnect::flash_read failed}
+[2022-09-05 17:13:24.917]{CUSBConnect::flash_read failed}
+[2022-09-05 17:13:25.323]{CUSBConnect::flash_read failed}
+[2022-09-05 17:13:25.323]{CUSBConnect::flash_read failed}
+[2022-31-05 09:34:34.159]{CUSBConnect::flash_read failed}
+[2022-31-05 09:34:34.160]{CUSBConnect::flash_read failed}
+[2022-02-06 16:14:16.889]{CUSBConnect::flash_read failed}
+[2022-02-06 16:14:16.890]{CUSBConnect::flash_read failed}
+[2022-02-06 16:14:17.294]{CUSBConnect::flash_read failed}
+[2022-02-06 16:14:17.295]{CUSBConnect::flash_read failed}
+[2022-02-06 16:28:34.531]{CUSBConnect::flash_read failed}
+[2022-02-06 16:28:34.532]{CUSBConnect::flash_read failed}
+[2022-02-06 16:31:52.536]{CUSBConnect::flash_read failed}
+[2022-02-06 16:31:53.549]{CUSBConnect::flash_read failed}
+[2022-05-08 16:38:54.221]{CUSBConnect::flash_read failed}
+[2022-05-08 16:38:54.222]{CUSBConnect::flash_read failed}
+[2022-22-11 23:19:16.983]{CUSBPort::open failed=MidiOutWinMM::openPort: error creating Windows MM MIDI output port.}
+[2022-05-12 21:21:59.404]{CUSBPort::open failed=MidiOutWinMM::openPort: error creating Windows MM MIDI output port.}
+[2022-13-12 19:15:44.039]{CUSBPort::open failed=MidiOutWinMM::openPort: error creating Windows MM MIDI output port.}
+[2022-13-12 19:15:45.041]{CUSBPort::open failed=MidiOutWinMM::openPort: error creating Windows MM MIDI output port.}
+[2022-13-12 19:15:46.039]{CUSBPort::open failed=MidiOutWinMM::openPort: error creating Windows MM MIDI output port.}
+[2022-14-12 12:55:34.727]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 12:55:35.903]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 12:55:37.881]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 13:52:48.797]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 13:52:51.225]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 13:52:53.306]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2022-14-12 13:53:09.817]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2023-04-04 22:37:19.339]{CUSBConnect::flash_read failed}
+[2026-01-02 14:18:59.367]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:18:59.369]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:19:02.359]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:19:02.361]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:19:04.360]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:19:04.362]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:18.993]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:18.994]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:24.994]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:24.995]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:26.993]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:20:26.995]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:21:15.576]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-01-02 14:21:15.577]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:17.555]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:17.558]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:28.556]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:28.559]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:30.555]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:50:30.558]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:51:35.149]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:51:35.151]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:51:37.148]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 16:51:37.151]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:04.128]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:04.130]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:08.128]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:08.130]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:37.128]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:37.130]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:58.098]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:11:58.101]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:12:09.098]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:12:09.101]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:12:10.098]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
+[2026-16-03 17:12:10.101]{CUSBPort::open failed=MidiInWinMM::openPort: error creating Windows MM MIDI input port.}
