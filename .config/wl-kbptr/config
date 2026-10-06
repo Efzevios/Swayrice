@@ -2,7 +2,7 @@
 cancellation_status_code=0
 
 [mode_tile]
-label_color=#ebdbb2ff
+label_color=#FFF
 label_select_color=#d79921ff
 unselectable_bg_color=#00000000
 selectable_bg_color=#282828cc
@@ -13,8 +13,8 @@ label_symbols=0123456789
 
 [mode_floating]
 source=detect
-label_color=#ebdbb2ff
-label_select_color=#cc241dff
+label_color=#FFF
+label_select_color=#ebdbb2ff
 unselectable_bg_color=#00000000
 selectable_bg_color=#282828cc
 selectable_border_color=#a89984ff
