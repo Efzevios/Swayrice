@@ -117,15 +117,15 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 ### II.IV. Movimentação para direita (estilo Vim)
 bindsym $mod+$right focus right
-# ### II.V. Movimentação para esquerda
-# bindsym $mod+LEFT focus left
-# ### II.VI. Movimentação para baixo
-# bindsym $mod+DOWN focus down
-# ### II.VII. Movimentação para cima
-# bindsym $mod+UP focus up
-# ### II.VIII. Movimentação para direita
-# bindsym $mod+RIGHT focus right
-## III. Mudança direcional de posição da janela em foco
+### II.V. Movimentação para esquerda
+bindsym $mod+LEFT focus left
+### II.VI. Movimentação para baixo
+bindsym $mod+DOWN focus down
+### II.VII. Movimentação para cima
+bindsym $mod+UP focus up
+### II.VIII. Movimentação para direita
+bindsym $mod+RIGHT focus right
+### III. Mudança direcional de posição da janela em foco
 ### III.I. mudança para esquerda (estilo Vim)
 bindsym $mod+Shift+$left move left
 ### III.II. mudança para baixo (estilo Vim)
@@ -134,14 +134,14 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 ### III.IV. mudança para direita (estilo Vim)
 bindsym $mod+Shift+$right move right
-# ### III.V. mudança para esquerda
-# bindsym $mod+Shift+LEFT move left
-# ### III.VI. mudança para baixo
-# bindsym $mod+Shift+DOWN move down
-# ### III.VII. mudança para cima
-# bindsym $mod+Shift+UP move up
-# ### III.VIII. mudança para direita
-# bindsym $mod+Shift+RIGHT move right
+### III.V. mudança para esquerda
+bindsym $mod+Shift+LEFT move left
+### III.VI. mudança para baixo
+bindsym $mod+Shift+DOWN move down
+### III.VII. mudança para cima
+bindsym $mod+Shift+UP move up
+### III.VIII. mudança para direita
+bindsym $mod+Shift+RIGHT move right
 ### IV. Mudança de espaço de trabalho e posicionamento ádrão
 bindsym $mod+1 workspace $et1
 bindsym $mod+2 workspace $et2
@@ -265,8 +265,8 @@ bindsym F8 exec playerctl stop
 # IV. Aparência
 # =====================
 ## I. Espaçamento
-### I.I. Espaçamento interno entre janelas
-gaps inner 1
+# ### I.I. Espaçamento interno entre janelas
+# gaps inner 1
 ### I.II. Espaçamento externo entre janelas
 gaps outer 2
 ### I.III. Espaçamento superior 
@@ -277,16 +277,16 @@ for_window [class="(?i)cubesuite.*"] floating enable
 ### II.II. Janelas com o título 'cubesuite' abrirão em modo flutuante
 for_window [title="(?i)cubesuite.*"] floating enable
 ### III. Cores das janelas
-client.focused #ebdbb2 #ebdbb2 #282828 #cc241d
-client.focused_inactive #282828 #282828 #282828
-client.unfocused #ebdbb2 #282828 #ebdbb2 #282828
+client.focused #ebdbb2 #282828 #ebdbb2 #cc241d
+client.focused_inactive #282828 #282828 #ebdbb2
+client.unfocused #282828 #282828 #ebdbb2 #282828
 client.urgent #cc241d #cc241d #cc241d #cc241d
 ## IV. Tema geral (GTK)
 ### IV.I. Definição geral para aplicativos
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-Dark-Gruvbox'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-Gruvbox'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 ### IV.II. Tema aplicado à aplicações Flatpak
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway GTK_THEME=Colloid-Dark-Gruvbox
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway GTK_THEME=Colloid-Gruvbox
 # --- FIM ---

@@ -120,8 +120,8 @@ export LANG=pt_BR.UTF-8
 export LANGUAGE=pt_BR:pt
 ## II. GTK
 ### II.I. Define o tema GTK e acento para aplicações (incluindo sandboxed)
-export GTK_THEME="Colloid-Dark-Gruvbox"
-export GTK2_RC_FILES="$HOME/.themes/Colloid-Dark-Gruvbox/gtk-2.0/gtkrc"
+export GTK_THEME="Colloid-Gruvbox"
+export GTK2_RC_FILES="$HOME/.themes/Colloid-Gruvbox/gtk-2.0/gtkrc"
 ### II.II. Garante a existência dos links do Libadwaita na abertura do shell
 if [ ! -f "$HOME/.config/gtk-3.0/gtk.css" ] && [ -f "$HOME/.config/gtk-4.0/gtk.css" ]; then
     mkdir -p ~/.config/gtk-3.0
@@ -130,54 +130,7 @@ fi
 ### III. QT - Funcionamento
 export QT_QPA_PLATFORM="wayland;xcb"
 . "$HOME/.cargo/env"
-### IV. LLM - Tradução
-# Função de tradução técnica para o terminal usando llm
-traduzir() {
-    # 1. Lista de chaves do Gemini (adicione quantas quiser)
-    local keys=(
-        "CHAVE1"
-        "CHAVE2"
-        "CHAVE3"
-        "CHAVE4"
-        "CHAVE5"
-    )
-
-    # 2. Sorteia uma chave a cada execução para balancear os limites de requisição
-    local selected_key=${keys[$RANDOM % ${#keys[@]}]}
-
-    # 3. Prompt do sistema otimizado para comandos de terminal
-    local system_prompt="Você é um tradutor especializado em GNU/Linux. Traduza o texto a seguir mantendo termos técnicos e formatação intactos."
-
-    # 4. Captura o comando que foi executado antes do pipe (|)
-    local raw_cmd
-    raw_cmd=$(fc -ln -1 2>/dev/null | awk -F'|' '{print $1}' | xargs)
-
-    # Fallback caso o histórico não capture a linha
-    if [[ -z "$raw_cmd" ]]; then
-        raw_cmd="comando_terminal"
-    fi
-
-    # Substitui caracteres especiais e espaços por underscores para evitar nomes inválidos
-    local clean_cmd
-    clean_cmd=$(echo "$raw_cmd" | tr -c 'a-zA-Z0-9._-' '_' | tr -s '_')
-
-    # Define a pasta onde os arquivos serão salvos e insere um timestamp para não sobrescrever execuções anteriores
-    local log_dir="$HOME/traduções"
-    mkdir -p "$log_dir"
-    local timestamp=$(date +%Y%m%d_%H%M%S)
-    local filename="${log_dir}/${clean_cmd}_${timestamp}.txt"
-
-    # 5. Executa o llm e armazena a saída
-    local output
-    if output=$(GEMINI_API_KEY="$selected_key" llm -m gemini-3.5-flash -o temperature 0 -s "$system_prompt"); then
-        # Exibe o resultado no terminal
-        printf "%s\n" "$output"
-        
-        # Salva o resultado no arquivo
-        printf "%s\n" "$output" > "$filename"
-        echo -e "\n\033[0;32m[Salvo em: $filename]\033[0m" >&2
-    else
-        echo -e "\033[0;31m[Erro] Falha na tradução. Nenhum arquivo foi salvo.\033[0m" >&2
-        return 1
-    fi
-}
+## IV. LLM - Tradução
+source "$HOME/.local/share/traduzir/traduzir.bash"
+### V. Spicetify
+export PATH=$PATH:/home/efzevios/.spicetify
