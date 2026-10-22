@@ -28,6 +28,7 @@
 * **Bluetooth:** Blueman
 * **Wifi:** Network-manager
 * **Áudio:** Pavucontrol
+* **Polkit:** Lxpolkit
 ### TUI
 * **[Calcure](https://github.com/anufrievroman/calcure)**
 * **[Goanime](https://github.com/alvarorichard/GoAnime)**
@@ -38,7 +39,7 @@
 * **[Gophertube](https://github.com/krishnassh/gophertube)**
 * **[Hygg](https://github.com/kruseio/hygg)**
 * **[Helm](https://github.com/0xjuanma/helm)**
-* **[Spotify-player](https://github.com/aome510/spotify-player)**
+* **[Ytm-player](https://github.com/peternaame-boop/ytm-player)**
 ### Outros
 * **[Awesome TUIs](https://github.com/rothgar/awesome-tuis/)**
 * **[Spicetify](https://spicetify.app/)**

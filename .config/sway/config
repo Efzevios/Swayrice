@@ -261,6 +261,13 @@ bindsym F6 exec playerctl next
 bindsym F7 exec playerctl play-pause
 ### XIV.IV. Parar
 bindsym F8 exec playerctl stop
+### XV. Atalhos para aplicações
+### XV.I. Gtt
+bindsym shift+mod1+g exec foot gtt
+### XV.II. Btop
+bindsym shift+mod1+b exec foot btop
+### XV.III. Tuidict
+bindsym shift+mod1+t exec foot tuidict
 # =====================
 # IV. Aparência
 # =====================
@@ -277,16 +284,19 @@ for_window [class="(?i)cubesuite.*"] floating enable
 ### II.II. Janelas com o título 'cubesuite' abrirão em modo flutuante
 for_window [title="(?i)cubesuite.*"] floating enable
 ### III. Cores das janelas
-client.focused #ebdbb2 #282828 #ebdbb2 #cc241d
-client.focused_inactive #282828 #282828 #ebdbb2
-client.unfocused #282828 #282828 #ebdbb2 #282828
+client.focused #ebdbb2 #ebdbb2 #282524 #cc241d
+client.focused_inactive #282524 #282524 #ebdbb2
+client.unfocused #282524 #282524 #ebdbb2 #282524
 client.urgent #cc241d #cc241d #cc241d #cc241d
 ## IV. Tema geral (GTK)
 ### IV.I. Definição geral para aplicativos
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-Gruvbox'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Colloid-Dark-Gruvbox'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 }
 ### IV.II. Tema aplicado à aplicações Flatpak
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway GTK_THEME=Colloid-Gruvbox
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway GTK_THEME=Colloid-Dark-Gruvbox
 # --- FIM ---
+
+# Autostart do KDE Connect
+exec --no-startup-id /usr/bin/kdeconnect-indicator
