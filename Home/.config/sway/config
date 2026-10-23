@@ -118,13 +118,13 @@ bindsym $mod+$up focus up
 ### II.IV. Movimentação para direita (estilo Vim)
 bindsym $mod+$right focus right
 ### II.V. Movimentação para esquerda
-bindsym $mod+LEFT focus left
+#bindsym $mod+LEFT focus left
 ### II.VI. Movimentação para baixo
-bindsym $mod+DOWN focus down
+#bindsym $mod+DOWN focus down
 ### II.VII. Movimentação para cima
-bindsym $mod+UP focus up
+#bindsym $mod+UP focus up
 ### II.VIII. Movimentação para direita
-bindsym $mod+RIGHT focus right
+#bindsym $mod+RIGHT focus right
 ### III. Mudança direcional de posição da janela em foco
 ### III.I. mudança para esquerda (estilo Vim)
 bindsym $mod+Shift+$left move left
@@ -135,13 +135,13 @@ bindsym $mod+Shift+$up move up
 ### III.IV. mudança para direita (estilo Vim)
 bindsym $mod+Shift+$right move right
 ### III.V. mudança para esquerda
-bindsym $mod+Shift+LEFT move left
+#bindsym $mod+Shift+LEFT move left
 ### III.VI. mudança para baixo
-bindsym $mod+Shift+DOWN move down
+#bindsym $mod+Shift+DOWN move down
 ### III.VII. mudança para cima
-bindsym $mod+Shift+UP move up
+#bindsym $mod+Shift+UP move up
 ### III.VIII. mudança para direita
-bindsym $mod+Shift+RIGHT move right
+#bindsym $mod+Shift+RIGHT move right
 ### IV. Mudança de espaço de trabalho e posicionamento ádrão
 bindsym $mod+1 workspace $et1
 bindsym $mod+2 workspace $et2
@@ -265,9 +265,13 @@ bindsym F8 exec playerctl stop
 ### XV.I. Gtt
 bindsym shift+mod1+g exec foot gtt
 ### XV.II. Btop
-bindsym shift+mod1+b exec foot btop
+bindsym shift+mod1+b exec foot --app-id=btop btop
 ### XV.III. Tuidict
 bindsym shift+mod1+t exec foot tuidict
+### XV.IV. Ytm
+bindsym shift+mod1+y exec foot --app-id=ytm ytm
+### XV.V. NoctaVox
+bindsym shift+mod1+n exec foot --app-id=vox vox
 # =====================
 # IV. Aparência
 # =====================
@@ -283,10 +287,20 @@ gaps top 2
 for_window [class="(?i)cubesuite.*"] floating enable
 ### II.II. Janelas com o título 'cubesuite' abrirão em modo flutuante
 for_window [title="(?i)cubesuite.*"] floating enable
+### II.III. Janela ytm
+for_window [app_id="^ytm$"] floating enable
+### II.IV. Janela NoctaVox
+for_window [app_id="^vox$"] floating enable
+### II.V. Janela Btop++
+for_window [app_id="^btop$"] floating enable, resize set 900 620
 ### III. Cores das janelas
-client.focused #ebdbb2 #ebdbb2 #282524 #cc241d
-client.focused_inactive #282524 #282524 #ebdbb2
-client.unfocused #282524 #282524 #ebdbb2 #282524
+### III.I. Cliente em foco
+client.focused #282524 #282524 #ebdbb2 #cc241d
+### III.II. Cliente em foco de outro contêiner
+client.focused_inactive #282524 #282524 #a99e82
+### III.III. Cliente fora de foco
+client.unfocused #282524 #282524 #3a3531
+### III.IV. Cliente urgente
 client.urgent #cc241d #cc241d #cc241d #cc241d
 ## IV. Tema geral (GTK)
 ### IV.I. Definição geral para aplicativos

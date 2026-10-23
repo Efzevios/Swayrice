@@ -9,9 +9,9 @@
 
 ### Papéis de parede
 <div align="center">
-  <img src="/Imagens/Os-caprichos-ensaios-goya.jpg" width="33%" />
-  <img src="/Imagens/retrato-de-joseph-roulind-van-gogh.jpg" width="33%" />
-  <img src="/Imagens/Uma-forma-de-voar-goya.jpg" width="33%" />
+  <img src="/Imagens/Os-caprichos-ensaios-goya.jpg" width="33%" height="33%" />
+  <img src="/Imagens/retrato-de-joseph-roulind-van-gogh.jpg" width="33%" height="33%" />
+  <img src="/Imagens/Uma-forma-de-voar-goya.jpg" width="33%" height="33%" />
 </div>
 
 ## Aplicações
