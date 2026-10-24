@@ -200,10 +200,10 @@ bindsym $down resize grow height 10px
 bindsym $up resize shrink height 10px
 bindsym $right resize grow width 10px
 # O mesmo, com as teclas de seta
-bindsym Left resize shrink width 10px
-bindsym Down resize grow height 10px
-bindsym Up resize shrink height 10px
-bindsym Right resize grow width 10px
+#bindsym Left resize shrink width 10px
+#bindsym Down resize grow height 10px
+#bindsym Up resize shrink height 10px
+#bindsym Right resize grow width 10px
 # Retornar ao modo padrão
 bindsym Return mode "default"
 bindsym Escape mode "default"

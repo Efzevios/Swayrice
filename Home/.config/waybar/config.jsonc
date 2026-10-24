@@ -56,7 +56,7 @@
 	 "sway/scratchpad": {
 	  "format": "{icon}",
 	  "show-empty": false,
-	  "format-icons": ["", "1", "2", "3+"]
+	  "format-icons": ["", "¹", "²", "³+"]
 	 },
 	// =====================
 	// IV. Módulos centrais
