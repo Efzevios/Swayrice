@@ -244,7 +244,7 @@ bindsym $mod+Shift+d exec "cliphist list | fuzzel --config ~/.config/fuzzel/fuzz
 ## Instale grim, slurp, imagemagick e wl-clipboard
 bindsym Scroll_Lock exec bash -c 'COLOR=$(grim -g "$(slurp -p)" -t ppm - | convert - -format "#%[hex:p{0,0}]" info:- | cut -c1-7) && wl-copy "$COLOR" && notify-send -t 5000 "Color Picker" "Cor copiada: $COLOR"'
 ### XII. Print (seleciona área)
-bindsym HOME exec bash -c 'DIR="$HOME/Imagens/Screenshots" && mkdir -p "$DIR" && FILE="$DIR/screenshot_$(date +%Y%m%d_%H%M%S).png" && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && notify-send -t 5000 -i "$FILE" "Screenshot" "Captura de área salva e copiada!"'
+bindsym HOME exec bash -c 'DIR="$HOME/Imagens/Screenshots" && mkdir -p "$DIR" && FILE="$DIR/screenshot_$(date +%Y%m%d_%H%M%S).png" && grim -g "$(slurp -o)" "$FILE" && wl-copy < "$FILE" && notify-send -t 5000 -i "$FILE" "Screenshot" "Captura de área salva e copiada!"'
 ## XIII. Áudio 
 ### XIII.I. Diminuir volume
 bindsym F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -272,6 +272,8 @@ bindsym shift+mod1+t exec foot tuidict
 bindsym shift+mod1+y exec foot --app-id=ytm ytm
 ### XV.V. NoctaVox
 bindsym shift+mod1+n exec foot --app-id=vox vox
+### XV.VI. Elinks
+bindsym shift+mod1+e exec foot elinks
 # =====================
 # IV. Aparência
 # =====================
