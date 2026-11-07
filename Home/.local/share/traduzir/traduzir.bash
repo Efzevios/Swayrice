@@ -1,6 +1,6 @@
-# TRADUZIR — projeto em 2 arquivos (Bash + credenciais/modelos).
-# Coloque este arquivo e credenciais_modelos.sh juntos na mesma pasta.
-# Adicione ao ~/.bashrc: source "$HOME/.config/traduzir/traduzir.bash"
+# TRADUZIR — tradutor de terminal em Bash.
+# Coloque traduzir.bash e credenciais_modelos.sh na mesma pasta.
+# Adicione ao ~/.bashrc: source "$HOME/.local/share/traduzir/traduzir.bash"
 # Utilize APENAS: comando 2>&1 | traduzir
 # O menu aparece depois de receber a saída do comando pelo pipe.
 # Dependências básicas: Bash, Python 3 e coreutils. Motores opcionais: man-db, llm, trans, apertium, Argos Translate.
@@ -17,8 +17,8 @@ traduzir() (
     local destino=${TRADUZIR_DIR:-"$HOME/traduções"}
     local cache_dir=${TRADUZIR_CACHE_DIR:-"${XDG_CACHE_HOME:-$HOME/.cache}/traduzir"}
     local organizar=${TRADUZIR_ORGANIZAR:-1} usar_cache=${TRADUZIR_CACHE:-1}
-    local cache_dias=${TRADUZIR_CACHE_TTL_DIAS:-30} versao_cache=${TRADUZIR_CACHE_VERSAO:-14}
-    local max_bytes=${TRADUZIR_MAX_BYTES:-524288} timeout_remoto=${TRADUZIR_TIMEOUT:-35}
+    local cache_dias=${TRADUZIR_CACHE_TTL_DIAS:-30} versao_cache=${TRADUZIR_CACHE_VERSAO:-16}
+    local max_bytes=${TRADUZIR_MAX_BYTES:-524288} timeout_remoto=${TRADUZIR_TIMEOUT:-180}
     local max_tentativas=${TRADUZIR_MAX_TENTATIVAS:-8} sequenciais=${TRADUZIR_SEQUENCIAIS:-3}
     local paralelo=${TRADUZIR_PARALELO:-3} devolver_original=${TRADUZIR_ORIGINAL_EM_FALHA:-1}
     local modo=perguntar
@@ -48,9 +48,11 @@ traduzir() (
     local -a TRADUZIR_MODELOS_API=()
     local -a TRADUZIR_MODELOS_GEMINI=() TRADUZIR_MODELOS_OPENAI=()
     local -a TRADUZIR_MODELOS_OPENAI_COMPATIVEIS=() TRADUZIR_MODELOS_ANTHROPIC=()
+    local -a TRADUZIR_MODELOS_OPENROUTER=()
     # Listas opcionais de bloqueios literais e expressões regulares Python.
     local -a TRADUZIR_BLOQUEIOS_LITERAIS=() TRADUZIR_BLOQUEIOS_REGEX=()
     local -a TRADUZIR_GEMINI_KEYS=() TRADUZIR_OPENAI_KEYS=() TRADUZIR_ANTHROPIC_KEYS=()
+    local -a TRADUZIR_OPENROUTER_KEYS=()
     if [[ ! -r $arquivo_config ]] || ! source "$arquivo_config"; then
         printf '[traduzir] Não foi possível carregar %s\n' "$arquivo_config" >&2
         return 2
@@ -69,7 +71,8 @@ traduzir() (
     # Uma instalação antiga com TRADUZIR_MODELOS_API continua funcionando enquanto
     # o usuário migra para os catálogos separados.
     if (( ${#TRADUZIR_MODELOS_GEMINI[@]} + ${#TRADUZIR_MODELOS_OPENAI[@]} +
-          ${#TRADUZIR_MODELOS_OPENAI_COMPATIVEIS[@]} + ${#TRADUZIR_MODELOS_ANTHROPIC[@]} > 0 )); then
+          ${#TRADUZIR_MODELOS_OPENAI_COMPATIVEIS[@]} + ${#TRADUZIR_MODELOS_ANTHROPIC[@]} +
+          ${#TRADUZIR_MODELOS_OPENROUTER[@]} > 0 )); then
         TRADUZIR_MODELOS_API=()
         local identificador
         for identificador in "${TRADUZIR_MODELOS_GEMINI[@]}"; do
@@ -80,6 +83,9 @@ traduzir() (
         done
         for identificador in "${TRADUZIR_MODELOS_ANTHROPIC[@]}"; do
             [[ -n $identificador ]] && TRADUZIR_MODELOS_API+=("anthropic:$identificador")
+        done
+        for identificador in "${TRADUZIR_MODELOS_OPENROUTER[@]}"; do
+            [[ -n $identificador ]] && TRADUZIR_MODELOS_API+=("openrouter:$identificador")
         done
     fi
     # Configurações no segundo arquivo devem surtir efeito mesmo com o Bash
@@ -419,6 +425,7 @@ PY_NATIVE_HELP
     _traduzir_filtrar_chaves TRADUZIR_GEMINI_KEYS
     _traduzir_filtrar_chaves TRADUZIR_OPENAI_KEYS
     _traduzir_filtrar_chaves TRADUZIR_ANTHROPIC_KEYS
+    _traduzir_filtrar_chaves TRADUZIR_OPENROUTER_KEYS
 
     # Uma rota representa uma combinação (provedor + modelo + chave).
     # A ordem é por ciclos de modelos, depois índice de chave, depois provedor:
@@ -429,7 +436,7 @@ PY_NATIVE_HELP
     _traduzir_preparar_apis() {
         local escolha='' numero=0 ciclo indice_chave quantidade
         local max_modelos=0 max_chaves=0
-        local -a modelos_gemini=() modelos_openai=() modelos_anthropic=() provedores=()
+        local -a modelos_gemini=() modelos_openai=() modelos_anthropic=() modelos_openrouter=() provedores=()
         local -a modelos_atuais=() chaves_atuais=()
         rotas=(); credenciais=(); etiquetas_chaves=(); escolha_api=todos
         modelos_menu=()
@@ -445,6 +452,7 @@ PY_NATIVE_HELP
                 gemini) (( ${#TRADUZIR_GEMINI_KEYS[@]} )) || continue ;;
                 openai) (( ${#TRADUZIR_OPENAI_KEYS[@]} )) || continue ;;
                 anthropic) (( ${#TRADUZIR_ANTHROPIC_KEYS[@]} )) || continue ;;
+                openrouter) (( ${#TRADUZIR_OPENROUTER_KEYS[@]} )) || continue ;;
                 *) continue ;;
             esac
             modelos_menu+=("$rota")
@@ -492,6 +500,10 @@ PY_NATIVE_HELP
                     (( ${#TRADUZIR_ANTHROPIC_KEYS[@]} )) || continue
                     [[ " ${modelos_anthropic[*]} " == *" $modelo "* ]] && continue
                     modelos_anthropic+=("$modelo") ;;
+                openrouter)
+                    (( ${#TRADUZIR_OPENROUTER_KEYS[@]} )) || continue
+                    [[ " ${modelos_openrouter[*]} " == *" $modelo "* ]] && continue
+                    modelos_openrouter+=("$modelo") ;;
                 *) continue ;;
             esac
             if [[ " ${provedores[*]} " != *" $provedor "* ]]; then
@@ -503,6 +515,7 @@ PY_NATIVE_HELP
                 gemini) quantidade=${#TRADUZIR_GEMINI_KEYS[@]}; j=${#modelos_gemini[@]} ;;
                 openai) quantidade=${#TRADUZIR_OPENAI_KEYS[@]}; j=${#modelos_openai[@]} ;;
                 anthropic) quantidade=${#TRADUZIR_ANTHROPIC_KEYS[@]}; j=${#modelos_anthropic[@]} ;;
+                openrouter) quantidade=${#TRADUZIR_OPENROUTER_KEYS[@]}; j=${#modelos_openrouter[@]} ;;
             esac
             (( quantidade > max_chaves )) && max_chaves=$quantidade
             (( j > max_modelos )) && max_modelos=$j
@@ -524,6 +537,9 @@ PY_NATIVE_HELP
                         anthropic)
                             modelos_atuais=("${modelos_anthropic[@]}")
                             chaves_atuais=("${TRADUZIR_ANTHROPIC_KEYS[@]}") ;;
+                        openrouter)
+                            modelos_atuais=("${modelos_openrouter[@]}")
+                            chaves_atuais=("${TRADUZIR_OPENROUTER_KEYS[@]}") ;;
                     esac
                     (( ciclo < ${#modelos_atuais[@]} && indice_chave < ${#chaves_atuais[@]} )) || continue
                     rotas+=("$provedor:${modelos_atuais[ciclo]}")
@@ -806,9 +822,9 @@ PYTHON_ORIGEM
     _traduzir_calcular_hash() {
         hash=$(
             {
-                printf '%s\0' "traduzir-v14-$versao_cache" "$modo" "$escolha_api" \
+                printf '%s\0' "traduzir-v15-$versao_cache" "$modo" "$escolha_api" \
                     "modelos=${TRADUZIR_MODELOS_API[*]}" \
-                    "quantidades=${#TRADUZIR_GEMINI_KEYS[@]},${#TRADUZIR_OPENAI_KEYS[@]},${#TRADUZIR_ANTHROPIC_KEYS[@]}" \
+                    "quantidades=${#TRADUZIR_GEMINI_KEYS[@]},${#TRADUZIR_OPENAI_KEYS[@]},${#TRADUZIR_ANTHROPIC_KEYS[@]},${#TRADUZIR_OPENROUTER_KEYS[@]}" \
                     "nativo=$nativo_arquivo:$nativo_assinatura" "nativo_largura=${TRADUZIR_NATIVO_LARGURA:-80}" "apertium=$apertium_modos_ativos" "apertium_datadir=$apertium_datadir" "argos=${argos_origem}:${argos_destino}" "bloqueios=$bloqueios_ativos" "aspas=$bloqueios_aspas" "estrutura=$bloqueios_estrutura" "numeros=$bloqueios_numeros" "validar=$bloqueios_validar" \
                     "literais=${TRADUZIR_BLOQUEIOS_LITERAIS[*]}" \
                     "regex=${TRADUZIR_BLOQUEIOS_REGEX[*]}" \
@@ -884,11 +900,12 @@ PYTHON_ORIGEM
         local rr=${rotas[ix]} cc=${credenciais[ix]} pp mm
         pp=${rr%%:*}; mm=${rr#*:}
         mm=$(_traduzir_modelo_cli "$pp" "$mm")
-        unset LLM_GEMINI_KEY GEMINI_API_KEY GOOGLE_API_KEY OPENAI_API_KEY ANTHROPIC_API_KEY
+        unset LLM_GEMINI_KEY GEMINI_API_KEY GOOGLE_API_KEY OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_KEY LLM_OPENROUTER_KEY
         case $pp in
             gemini) export LLM_GEMINI_KEY="$cc" ;;
             openai) export OPENAI_API_KEY="$cc" ;;
             anthropic) export ANTHROPIC_API_KEY="$cc" ;;
+            openrouter) export OPENROUTER_KEY="$cc" LLM_OPENROUTER_KEY="$cc" ;;
             *) return 2 ;;
         esac
         local status=0
@@ -913,7 +930,7 @@ PYTHON_ORIGEM
         local segredos=''
         printf -v segredos '%s\037' \
             "${TRADUZIR_GEMINI_KEYS[@]}" "${TRADUZIR_OPENAI_KEYS[@]}" \
-            "${TRADUZIR_ANTHROPIC_KEYS[@]}"
+            "${TRADUZIR_ANTHROPIC_KEYS[@]}" "${TRADUZIR_OPENROUTER_KEYS[@]}"
         TRADUZIR_SEGREDOS="$segredos" python3 - "$arquivo_erro" "$codigo" <<'PY_ERRO_API'
 import os
 import pathlib
@@ -967,6 +984,8 @@ elif achou(r'\b400\b|bad request|invalid request|invalid argument'):
     causa = 'HTTP 400 / requisição inválida'
 elif achou(r'connection|network|dns|name resolution|ssl|certificate|connecterror|temporarily unavailable'):
     causa = 'falha de rede / conexão ou TLS'
+elif achou(r"nonetype.*not iterable|for extra_model in extra_models"):
+    causa = 'configuração YAML do llm inválida ou vazia (extra-openai-models.yaml: use [] se não houver modelos)'
 elif achou(r'no module named|modulenotfound|importerror|plugin|could not find model|no such option|no such command'):
     causa = 'erro do llm, opção desconhecida ou plugin ausente (verifique llm e plugins)'
 elif codigo == '127':
@@ -1057,11 +1076,12 @@ PY_ERRO_API
                     # falha. O PID real do timeout fica registrado apenas num
                     # arquivo temporário privado para encerramento seguro.
                     (
-                        unset LLM_GEMINI_KEY GEMINI_API_KEY GOOGLE_API_KEY OPENAI_API_KEY ANTHROPIC_API_KEY
+                        unset LLM_GEMINI_KEY GEMINI_API_KEY GOOGLE_API_KEY OPENAI_API_KEY ANTHROPIC_API_KEY OPENROUTER_KEY LLM_OPENROUTER_KEY
                         case $pp in
                             gemini) export LLM_GEMINI_KEY="$cc" ;;
                             openai) export OPENAI_API_KEY="$cc" ;;
                             anthropic) export ANTHROPIC_API_KEY="$cc" ;;
+                            openrouter) export OPENROUTER_KEY="$cc" LLM_OPENROUTER_KEY="$cc" ;;
                         esac
                         timeout --signal=TERM --kill-after=3s "${timeout_remoto}s" \
                             llm --no-log --no-stream -m "$mm" -s "$prompt" \
